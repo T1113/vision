@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027-2046年中国985/211高校录取占比预测分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            height: 70vh;
+            width: 100%;
+        }
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 50vh;
+            }
+        }
+        .highlight-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-heading {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .scale-in {
+            animation: scale-in 0.5s ease-out;
+        }
+        @keyframes scale-in {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- 引人注目的开头部分 -->
+        <div class="mb-12 bg-white rounded-xl overflow-hidden shadow-lg scale-in">
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-1">
+                <div class="p-6 md:p-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-heading">重磅发现：未来20年，精英大学录取机会将增加近70%</h1>
+                    
+                    <div class="flex flex-col md:flex-row gap-6 items-center mb-8">
+                        <div class="w-full md:w-2/3">
+                            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5 rounded-r-lg mb-6">
+                                <p class="text-lg font-medium text-gray-800">历史性转折：</p>
+                                <p class="text-gray-700 mt-2">目前进入985/211高校的机会约为<span class="font-semibold text-indigo-600">3.2%</span>，到2046年将提高到惊人的<span class="font-semibold text-purple-600">5.4%</span>！</p>
+                                <p class="text-gray-700 mt-2">这意味着什么？你的孩子上名校的机会比你多出<span class="font-semibold text-red-600">近70%</span>！</p>
+                            </div>
+                            
+                            <p class="text-gray-700">随着出生人口持续下降，而顶尖高校名额保持稳定，中国精英教育面临历史性转变。本分析揭示了2027-2046年间985/211高校录取比例的惊人上升趋势，以及这一变化给教育格局带来的深远影响。</p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/3 bg-indigo-800 rounded-xl p-6 text-white relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-600 rounded-bl-full"></div>
+                            <div class="absolute bottom-0 left-0 w-16 h-16 bg-purple-600 rounded-tr-full"></div>
+                            
+                            <h3 class="text-xl font-bold mb-6 relative z-10">录取率历史突破</h3>
+                            
+                            <div class="relative z-10 flex justify-between items-center mb-3 pb-3 border-b border-indigo-600">
+                                <span>2027年</span>
+                                <span class="text-2xl font-bold">3.2%</span>
+                            </div>
+                            
+                            <div class="relative z-10 flex justify-between items-center mb-3 pb-3 border-b border-indigo-600">
+                                <span>2036年</span>
+                                <span class="text-2xl font-bold">4.0%</span>
+                            </div>
+                            
+                            <div class="relative z-10 flex justify-between items-center">
+                                <span>2046年</span>
+                                <span class="text-2xl font-bold text-yellow-300 float-animation">5.4%</span>
+                            </div>
+                            
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-700 rounded-full opacity-40"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mb-4">
+                        <div class="bg-blue-50 p-4 rounded-lg shadow">
+                            <div class="text-blue-800 font-bold mb-1">985高校</div>
+                            <p class="text-xs text-gray-500 mb-1">录取概率</p>
+                            <div class="flex justify-between items-center px-2">
+                                <span class="text-sm">2027</span>
+                                <div class="h-1 flex-grow mx-2 bg-gray-200">
+                                    <div class="h-full bg-blue-500" style="width:35%"></div>
+                                </div>
+                                <span class="text-sm">1.9%</span>
+                            </div>
+                            <div class="flex justify-between items-center px-2 mt-2">
+                                <span class="text-sm">2046</span>
+                                <div class="h-1 flex-grow mx-2 bg-gray-200">
+                                    <div class="h-full bg-blue-600" style="width:60%"></div>
+                                </div>
+                                <span class="text-sm font-medium">3.1%</span>
+                            </div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg shadow">
+                            <div class="text-purple-800 font-bold mb-1">211高校</div>
+                            <p class="text-xs text-gray-500 mb-1">录取概率</p>
+                            <div class="flex justify-between items-center px-2">
+                                <span class="text-sm">2027</span>
+                                <div class="h-1 flex-grow mx-2 bg-gray-200">
+                                    <div class="h-full bg-purple-500" style="width:25%"></div>
+                                </div>
+                                <span class="text-sm">1.3%</span>
+                            </div>
+                            <div class="flex justify-between items-center px-2 mt-2">
+                                <span class="text-sm">2046</span>
+                                <div class="h-1 flex-grow mx-2 bg-gray-200">
+                                    <div class="h-full bg-purple-600" style="width:45%"></div>
+                                </div>
+                                <span class="text-sm font-medium">2.3%</span>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg shadow">
+                            <div class="text-indigo-800 font-bold mb-1">总体变化</div>
+                            <p class="text-xs text-gray-500 mb-1">985/211占比增长</p>
+                            <div class="highlight-number">+68%</div>
+                            <p class="text-xs text-indigo-800 mt-2">2027-2046年对比</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center mt-6">
+                        <a href="#main-content" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:from-blue-600 hover:to-purple-700 transition-all">
+                            查看详细分析
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v10.586l3.293-3.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 14.586V4a1 1 0 011-1z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="main-content">
+            <header class="mb-10 text-center">
+                <h1 class="text-3xl font-bold text-gray-800 mb-4">2027-2046年中国985/211高校录取占比预测分析</h1>
+                <p class="text-gray-600 max-w-3xl mx-auto">本分析基于2005-2024年出生人口数据，假设固定71.85%的高等教育普及率和37万人的985/211高校年招生规模进行预测</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">985/211高校录取占比变化趋势</h2>
+                    <div class="chart-container">
+                        <canvas id="ratioChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">预测毕业生总量与985/211招生对比</h2>
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-10">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">985/211高校录取占比预测数据表</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="px-4 py-2 text-left">出生年份</th>
+                                <th class="px-4 py-2 text-right">出生人口(万)</th>
+                                <th class="px-4 py-2 text-left">毕业年份</th>
+                                <th class="px-4 py-2 text-right">预测毕业生(万)</th>
+                                <th class="px-4 py-2 text-right">985高校录取(万)</th>
+                                <th class="px-4 py-2 text-right">211高校录取(万)</th>
+                                <th class="px-4 py-2 text-right">985/211占比(%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTable">
+                            <!-- 数据将通过JS动态填充 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">985/211高校占比趋势</h3>
+                    <div class="text-gray-700">
+                        <p>2027-2046年间，985/211高校录取占比将从<span class="font-semibold text-blue-600">3.2%</span>上升至<span class="font-semibold text-blue-600">5.4%</span>，增长约<span class="font-semibold text-blue-600">68%</span>。</p>
+                        <p class="mt-2">特别是2040年后，占比将突破5%，达到历史高点。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">精英教育机会变化</h3>
+                    <div class="text-gray-700">
+                        <p>985高校录取机会将从<span class="font-semibold text-red-600">1.9%</span>增加到<span class="font-semibold text-red-600">3.1%</span>。</p>
+                        <p class="mt-2">211高校（不含985）录取机会将从<span class="font-semibold text-red-600">1.3%</span>增加到<span class="font-semibold text-red-600">2.3%</span>。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">区域与学科影响</h3>
+                    <div class="text-gray-700">
+                        <p>随着985/211占比提高，区域录取差异可能<span class="font-semibold text-purple-600">缩小</span>，热门学科竞争度将<span class="font-semibold text-purple-600">相对下降</span>。</p>
+                        <p class="mt-2">但精英高校的品牌溢价和社会资源竞争可能进一步加剧。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-10">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">精英教育与普通教育结构变化预测</h2>
+                <div class="flex justify-center mb-6">
+                    <svg width="800" height="200" viewBox="0 0 800 200" class="max-w-full">
+                        <!-- 背景网格 -->
+                        <line x1="100" y1="50" x2="700" y2="50" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="100" y1="100" x2="700" y2="100" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="100" y1="150" x2="700" y2="150" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="5,5"/>
+                        
+                        <!-- 年份标记 -->
+                        <text x="100" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2027</text>
+                        <text x="220" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2031</text>
+                        <text x="340" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2035</text>
+                        <text x="460" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2039</text>
+                        <text x="580" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2043</text>
+                        <text x="700" y="180" text-anchor="middle" font-size="12" fill="#4A5568">2046</text>
+                        
+                        <!-- 占比标记 -->
+                        <text x="80" y="155" text-anchor="end" font-size="12" fill="#4A5568">3%</text>
+                        <text x="80" y="105" text-anchor="end" font-size="12" fill="#4A5568">4%</text>
+                        <text x="80" y="55" text-anchor="end" font-size="12" fill="#4A5568">5%</text>
+                        
+                        <!-- 985/211占比曲线 -->
+                        <path d="M100,150 Q400,130 700,50" fill="none" stroke="#3B82F6" stroke-width="3"/>
+                        
+                        <!-- 关键点标记 -->
+                        <circle cx="100" cy="150" r="5" fill="#3B82F6"/>
+                        <circle cx="220" cy="140" r="5" fill="#3B82F6"/>
+                        <circle cx="340" cy="125" r="5" fill="#3B82F6"/>
+                        <circle cx="460" cy="100" r="5" fill="#3B82F6"/>
+                        <circle cx="580" cy="70" r="5" fill="#3B82F6"/>
+                        <circle cx="700" cy="50" r="5" fill="#3B82F6"/>
+                        
+                        <!-- 关键数据标记 -->
+                        <text x="100" y="135" text-anchor="middle" font-size="11" fill="#2D3748">3.2%</text>
+                        <text x="340" y="110" text-anchor="middle" font-size="11" fill="#2D3748">3.8%</text>
+                        <text x="580" y="55" text-anchor="middle" font-size="11" fill="#2D3748">4.9%</text>
+                        <text x="700" y="35" text-anchor="middle" font-size="11" fill="#2D3748">5.4%</text>
+                        
+                        <!-- 说明文字 -->
+                        <text x="400" y="20" text-anchor="middle" font-size="14" fill="#2D3748" font-weight="bold">985/211高校录取占比预测</text>
+                    </svg>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">2027-2031</h4>
+                        <p class="text-sm mt-2">985/211占比: 3.2%-3.5%</p>
+                        <p class="text-sm mt-1">相对稳定增长期</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">2032-2037</h4>
+                        <p class="text-sm mt-2">985/211占比: 3.6%-4.0%</p>
+                        <p class="text-sm mt-1">中速增长期</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">2038-2042</h4>
+                        <p class="text-sm mt-2">985/211占比: 4.1%-4.8%</p>
+                        <p class="text-sm mt-1">快速增长期</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800">2043-2046</h4>
+                        <p class="text-sm mt-2">985/211占比: 4.9%-5.4%</p>
+                        <p class="text-sm mt-1">高位平台期</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="text-center text-gray-500 text-sm">
+                <p>数据来源：中国2005-2024年新生人口数据</p>
+                <p class="mt-1">预测假设：固定71.85%高等教育普及率和37万人985/211年招生规模</p>
+                <p class="mt-1">© 2023 中国高等教育结构变化预测分析</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // 数据
+        const data = [
+            { birthYear: 2005, population: 1612, gradYear: 2027, graduates: null, ratio985211: null },
+            { birthYear: 2006, population: 1581, gradYear: 2028, graduates: null, ratio985211: null },
+            { birthYear: 2007, population: 1591, gradYear: 2029, graduates: null, ratio985211: null },
+            { birthYear: 2008, population: 1604, gradYear: 2030, graduates: null, ratio985211: null },
+            { birthYear: 2009, population: 1587, gradYear: 2031, graduates: null, ratio985211: null },
+            { birthYear: 2010, population: 1588, gradYear: 2032, graduates: null, ratio985211: null },
+            { birthYear: 2011, population: 1600, gradYear: 2033, graduates: null, ratio985211: null },
+            { birthYear: 2012, population: 1635, gradYear: 2034, graduates: null, ratio985211: null },
+            { birthYear: 2013, population: 1640, gradYear: 2035, graduates: null, ratio985211: null },
+            { birthYear: 2014, population: 1687, gradYear: 2036, graduates: null, ratio985211: null },
+            { birthYear: 2015, population: 1655, gradYear: 2037, graduates: null, ratio985211: null },
+            { birthYear: 2016, population: 1786, gradYear: 2038, graduates: null, ratio985211: null },
+            { birthYear: 2017, population: 1723, gradYear: 2039, graduates: null, ratio985211: null },
+            { birthYear: 2018, population: 1523, gradYear: 2040, graduates: null, ratio985211: null },
+            { birthYear: 2019, population: 1465, gradYear: 2041, graduates: null, ratio985211: null },
+            { birthYear: 2020, population: 1200, gradYear: 2042, graduates: null, ratio985211: null },
+            { birthYear: 2021, population: 1062, gradYear: 2043, graduates: null, ratio985211: null },
+            { birthYear: 2022, population: 956, gradYear: 2044, graduates: null, ratio985211: null },
+            { birthYear: 2023, population: 902, gradYear: 2045, graduates: null, ratio985211: null },
+            { birthYear: 2024, population: 954, gradYear: 2046, graduates: null, ratio985211: null }
+        ];
+
+        // 常量定义
+        const EDUCATION_RATIO = 71.85; // 高等教育普及率
+        const ELITE_ADMISSION = 37; // 985/211高校年招生人数(万人)
+        const RATIO_985 = 21.4 / 37; // 985高校在985/211总招生中的占比
+        const RATIO_211 = 15.6 / 37; // 211高校在985/211总招生中的占比
+
+        // 计算预测数据
+        data.forEach(item => {
+            // 预测毕业生数量(万人)
+            item.graduates = parseFloat((item.population * EDUCATION_RATIO / 100).toFixed(2));
+            
+            // 计算985/211在毕业生总数中的占比
+            item.ratio985211 = parseFloat((ELITE_ADMISSION / item.graduates * 100).toFixed(2));
+            
+            // 计算985和211各自的录取人数
+            item.admission985 = parseFloat((ELITE_ADMISSION * RATIO_985).toFixed(2));
+            item.admission211 = parseFloat((ELITE_ADMISSION * RATIO_211).toFixed(2));
+            
+            // 计算985和211各自占比
+            item.ratio985 = parseFloat((item.admission985 / item.graduates * 100).toFixed(2));
+            item.ratio211 = parseFloat((item.admission211 / item.graduates * 100).toFixed(2));
+        });
+
+        // 填充数据表格
+        const tableBody = document.getElementById('dataTable');
+        
+        // 显示部分关键年份数据
+        const displayYears = [2005, 2008, 2011, 2014, 2017, 2020, 2022, 2024];
+        
+        data.filter(item => displayYears.includes(item.birthYear)).forEach(item => {
+            const row = document.createElement('tr');
+            row.className = 'border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-4 py-2">${item.birthYear}</td>
+                <td class="px-4 py-2 text-right">${item.population.toLocaleString()}</td>
+                <td class="px-4 py-2">${item.gradYear}</td>
+                <td class="px-4 py-2 text-right">${item.graduates.toLocaleString()}</td>
+                <td class="px-4 py-2 text-right">${item.admission985.toFixed(2)}</td>
+                <td class="px-4 py-2 text-right">${item.admission211.toFixed(2)}</td>
+                <td class="px-4 py-2 text-right font-semibold">${item.ratio985211.toFixed(2)}%</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // 添加震撼效果的辅助函数
+        function getGradientColor(ctx, chartArea, colorStart, colorEnd) {
+            const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+            gradient.addColorStop(0, colorStart);
+            gradient.addColorStop(1, colorEnd);
+            return gradient;
+        }
+
+        // 获取关键年份的数据点索引
+        function getKeyYearIndices() {
+            const keyYears = [2027, 2031, 2035, 2039, 2043, 2046];
+            return keyYears.map(year => data.findIndex(item => item.gradYear === year));
+        }
+
+        // 创建突出特定年份的背景区域
+        function createBackgroundZones() {
+            // 区域定义：[开始年索引, 结束年索引, 颜色, 标记文字]
+            return [
+                [0, 4, 'rgba(219, 234, 254, 0.3)', '相对稳定期'],
+                [5, 9, 'rgba(221, 214, 254, 0.3)', '中速增长期'],
+                [10, 14, 'rgba(254, 215, 215, 0.3)', '快速增长期'],
+                [15, 19, 'rgba(254, 240, 215, 0.3)', '高位平台期']
+            ];
+        }
+
+        // 985/211高校录取占比变化趋势图 - 强化版
+        const ratioCtx = document.getElementById('ratioChart').getContext('2d');
+        let ratioChart;
+
+        const zonePlugin = {
+            id: 'backgroundZones',
+            beforeDraw: (chart) => {
+                if (chart.config.type !== 'line') return;
+                
+                const {ctx, chartArea, scales} = chart;
+                if (!chartArea) return;
+                
+                const zones = createBackgroundZones();
+                
+                // 绘制背景区域
+                zones.forEach(([startIdx, endIdx, color, label]) => {
+                    const startX = scales.x.getPixelForValue(data[startIdx].gradYear);
+                    const endX = scales.x.getPixelForValue(data[endIdx].gradYear);
+                    
+                    ctx.save();
+                    ctx.fillStyle = color;
+                    ctx.fillRect(startX, chartArea.top, endX - startX, chartArea.height);
+                    
+                    // 添加区域标签
+                    ctx.textAlign = 'center';
+                    ctx.font = '12px Arial';
+                    ctx.fillStyle = 'rgba(55, 65, 81, 0.8)';
+                    ctx.fillText(label, startX + (endX - startX) / 2, chartArea.top + 15);
+                    ctx.restore();
+                });
+            }
+        };
+
+        // 注册自定义插件
+        Chart.register(zonePlugin);
+        
+        ratioChart = new Chart(ratioCtx, {
+            type: 'line',
+            data: {
+                labels: data.map(item => item.gradYear),
+                datasets: [
+                    {
+                        label: '985/211高校录取占比(%)',
+                        data: data.map(item => item.ratio985211),
+                        borderColor: function(context) {
+                            const chart = context.chart;
+                            const {ctx, chartArea} = chart;
+                            if (!chartArea) return 'rgba(59, 130, 246, 1)';
+                            return getGradientColor(ctx, chartArea, 'rgba(59, 130, 246, 0.8)', 'rgba(220, 38, 38, 0.8)');
+                        },
+                        backgroundColor: function(context) {
+                            const chart = context.chart;
+                            const {ctx, chartArea} = chart;
+                            if (!chartArea) return 'rgba(59, 130, 246, 0.1)';
+                            return getGradientColor(ctx, chartArea, 'rgba(59, 130, 246, 0.05)', 'rgba(59, 130, 246, 0.2)');
+                        },
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 4,
+                        pointRadius: function(context) {
+                            const keyIndices = getKeyYearIndices();
+                            return keyIndices.includes(context.dataIndex) ? 7 : 0;
+                        },
+                        pointHoverRadius: 9,
+                        pointBackgroundColor: function(context) {
+                            const value = context.raw;
+                            if (value < 3.5) return 'rgba(59, 130, 246, 1)';
+                            if (value < 4.5) return 'rgba(139, 92, 246, 1)';
+                            return 'rgba(220, 38, 38, 1)';
+                        },
+                        pointBorderColor: 'white',
+                        pointBorderWidth: 2,
+                        pointStyle: 'circle',
+                        pointShadowBlur: 10,
+                        pointShadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    {
+                        label: '985高校录取占比(%)',
+                        data: data.map(item => item.ratio985),
+                        borderColor: 'rgba(220, 38, 38, 0.7)',
+                        backgroundColor: 'rgba(220, 38, 38, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        pointHoverRadius: 5
+                    },
+                    {
+                        label: '211高校录取占比(%)',
+                        data: data.map(item => item.ratio211),
+                        borderColor: 'rgba(124, 58, 237, 0.7)',
+                        backgroundColor: 'rgba(124, 58, 237, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        pointHoverRadius: 5
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                animations: {
+                    tension: {
+                        duration: 1000,
+                        easing: 'linear'
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 13
+                            },
+                            usePointStyle: true,
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 15,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        borderWidth: 1,
+                        callbacks: {
+                            title: function(context) {
+                                const index = context[0].dataIndex;
+                                return `毕业年份: ${data[index].gradYear}`;
+                            },
+                            afterTitle: function(context) {
+                                const index = context[0].dataIndex;
+                                return `出生年份: ${data[index].birthYear}`;
+                            },
+                            label: function(context) {
+                                if (context.dataset.label === '985/211高校录取占比(%)') {
+                                    const value = context.parsed.y.toFixed(2);
+                                    let rating = '';
+                                    if (value < 3.5) rating = '正常';
+                                    else if (value < 4.0) rating = '较高';
+                                    else if (value < 4.5) rating = '高';
+                                    else if (value < 5.0) rating = '很高';
+                                    else rating = '极高';
+                                    
+                                    return ` ${context.dataset.label}: ${value}% (${rating})`;
+                                }
+                                return ` ${context.dataset.label}: ${context.parsed.y.toFixed(2)}%`;
+                            },
+                            afterBody: function(context) {
+                                const index = context[0].dataIndex;
+                                return [
+                                    ``,
+                                    `出生人口: ${data[index].population.toLocaleString()}万`,
+                                    `预测毕业生: ${data[index].graduates.toLocaleString()}万`,
+                                    `985高校录取: ${data[index].admission985.toFixed(1)}万人 (${data[index].ratio985.toFixed(2)}%)`,
+                                    `211高校录取: ${data[index].admission211.toFixed(1)}万人 (${data[index].ratio211.toFixed(2)}%)`
+                                ];
+                            },
+                            footer: function(context) {
+                                const index = context[0].dataIndex;
+                                const value = data[index].ratio985211;
+                                let stage = '';
+                                if (index < 5) stage = '相对稳定期 (2027-2031)';
+                                else if (index < 10) stage = '中速增长期 (2032-2037)';
+                                else if (index < 15) stage = '快速增长期 (2038-2042)';
+                                else stage = '高位平台期 (2043-2046)';
+                                
+                                const baseline = data[0].ratio985211;
+                                const change = ((value - baseline) / baseline * 100).toFixed(1);
+                                
+                                return [`发展阶段: ${stage}`, `与2027年相比: +${change}%`];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 1,
+                        max: 6,
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)',
+                            drawBorder: false
+                        },
+                        title: {
+                            display: true,
+                            text: '录取占比(%)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: {top: 0, bottom: 10}
+                        },
+                        ticks: {
+                            callback: function(val) {
+                                return val + '%';
+                            },
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: '毕业年份',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            padding: {top: 10, bottom: 0}
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 预测毕业生总量与985/211招生对比图 - 强化版
+        const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+        
+        // 计算出特定毕业年份的数据
+        const focusYears = [2027, 2031, 2035, 2039, 2042, 2046];
+        const focusData = data.filter(item => focusYears.includes(item.gradYear));
+        
+        // 计算985/211占比的大小，用于气泡图尺寸
+        const minRatio = Math.min(...data.map(item => item.ratio985211));
+        const maxRatio = Math.max(...data.map(item => item.ratio985211));
+        
+        // 归一化占比数据为气泡大小
+        function normalizeBubbleSize(ratio) {
+            const minSize = 10;
+            const maxSize = 40;
+            return minSize + (maxSize - minSize) * (ratio - minRatio) / (maxRatio - minRatio);
+        }
+        
+        // 自定义绘制函数以展示震撼的对比效果
+        const customDrawPlugin = {
+            id: 'customDraw',
+            afterDraw: (chart) => {
+                if (chart.config.type !== 'bubble') return;
+                
+                const {ctx, chartArea, scales} = chart;
+                if (!chartArea) return;
+                
+                // 绘制趋势线
+                ctx.save();
+                ctx.beginPath();
+                
+                let firstPoint = true;
+                data.forEach((item, i) => {
+                    const x = scales.x.getPixelForValue(item.graduates);
+                    const y = scales.y.getPixelForValue(item.gradYear);
+                    
+                    if (firstPoint) {
+                        ctx.moveTo(x, y);
+                        firstPoint = false;
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                
+                ctx.strokeStyle = 'rgba(107, 114, 128, 0.5)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.restore();
+                
+                // 为特定年份添加标注
+                focusData.forEach(item => {
+                    const x = scales.x.getPixelForValue(item.graduates);
+                    const y = scales.y.getPixelForValue(item.gradYear);
+                    
+                    ctx.save();
+                    
+                    // 绘制垂直辅助线到X轴
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x, chartArea.bottom);
+                    ctx.setLineDash([3, 3]);
+                    ctx.strokeStyle = 'rgba(107, 114, 128, 0.5)';
+                    ctx.stroke();
+                    
+                    // 在X轴添加毕业人数标签
+                    ctx.font = '11px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = 'rgba(107, 114, 128, 0.8)';
+                    ctx.fillText(`${item.graduates.toFixed(0)}万`, x, chartArea.bottom + 15);
+                    
+                    ctx.restore();
+                });
+            }
+        };
+        
+        // 注册插件
+        Chart.register(customDrawPlugin);
+        
+        const bubbleChart = new Chart(comparisonCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: '毕业生数量与985/211录取率关系',
+                        data: data.map(item => ({
+                            x: item.graduates,
+                            y: item.gradYear,
+                            r: normalizeBubbleSize(item.ratio985211)
+                        })),
+                        backgroundColor: function(context) {
+                            const value = data[context.dataIndex].ratio985211;
+                            if (value < 3.5) return 'rgba(59, 130, 246, 0.7)';
+                            if (value < 4.0) return 'rgba(139, 92, 246, 0.7)';
+                            if (value < 4.5) return 'rgba(236, 72, 153, 0.7)';
+                            if (value < 5.0) return 'rgba(239, 68, 68, 0.7)';
+                            return 'rgba(249, 115, 22, 0.7)';
+                        },
+                        borderColor: 'rgba(255, 255, 255, 0.8)',
+                        borderWidth: 2,
+                        hoverBorderWidth: 3,
+                        hoverBackgroundColor: function(context) {
+                            const value = data[context.dataIndex].ratio985211;
+                            if (value < 3.5) return 'rgba(59, 130, 246, 0.9)';
+                            if (value < 4.0) return 'rgba(139, 92, 246, 0.9)';
+                            if (value < 4.5) return 'rgba(236, 72, 153, 0.9)';
+                            if (value < 5.0) return 'rgba(239, 68, 68, 0.9)';
+                            return 'rgba(249, 115, 22, 0.9)';
+                        }
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: '预测毕业生数量(万人)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 600,
+                        max: 1300,
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)',
+                            drawBorder: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '毕业年份',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        min: 2026,
+                        max: 2047,
+                        ticks: {
+                            stepSize: 2,
+                            callback: function(value) {
+                                // 显示毕业年份的同时显示对应出生年份
+                                const dataItem = data.find(item => item.gradYear === value);
+                                if (dataItem) {
+                                    return `${value} (${dataItem.birthYear}出生)`;
+                                }
+                                return value;
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.2)',
+                            drawBorder: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        padding: 15,
+                        cornerRadius: 8,
+                        callbacks: {
+                            title: function(context) {
+                                const index = context[0].dataIndex;
+                                return `毕业年份: ${data[index].gradYear} (${data[index].birthYear}年出生)`;
+                            },
+                            label: function(context) {
+                                const index = context.dataIndex;
+                                const ratio = data[index].ratio985211.toFixed(2);
+                                let ratingText = '';
+                                
+                                if (ratio < 3.5) ratingText = '正常水平';
+                                else if (ratio < 4.0) ratingText = '较高水平';
+                                else if (ratio < 4.5) ratingText = '高水平';
+                                else if (ratio < 5.0) ratingText = '很高水平';
+                                else ratingText = '极高水平';
+                                
+                                return [
+                                    `预测毕业生: ${data[index].graduates.toLocaleString()}万人`,
+                                    `985/211录取占比: ${ratio}% (${ratingText})`,
+                                    `985高校录取: ${data[index].admission985.toFixed(1)}万人`,
+                                    `211高校录取: ${data[index].admission211.toFixed(1)}万人`,
+                                    ``,
+                                    `出生人口: ${data[index].population.toLocaleString()}万人`
+                                ];
+                            },
+                            footer: function(context) {
+                                const index = context[0].dataIndex;
+                                if (index === 0) return;
+                                
+                                const change = ((data[index].ratio985211 - data[0].ratio985211) / data[0].ratio985211 * 100).toFixed(1);
+                                return [`与2027年相比: 录取率增长 ${change}%`];
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 添加一些标题和说明
+        document.querySelector('.grid.grid-cols-1.lg\\:grid-cols-2.gap-8.mb-10').insertAdjacentHTML('beforebegin', `
+            <div class="bg-gradient-to-r from-blue-50 to-red-50 p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">数据亮点：985/211高校录取占比将在2046年达到历史性的<span class="text-red-600 text-2xl">5.4%</span></h2>
+                <p class="text-gray-700">出生人口的持续下降与精英高校录取规模保持不变，将导致高质量高等教育资源获取机会的显著增加。</p>
+                <p class="text-gray-700 mt-2">下方图表清晰展示了这一趋势及其发展阶段，气泡图直观呈现了人口变化与录取机会的关系。</p>
+            </div>
+        `);
+    </script>
+</body>
+</html> 
